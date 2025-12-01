@@ -95,7 +95,7 @@ export default function Services() {
       {/* Services Grid */}
       <section className="pb-24">
         <div className="container-custom space-y-8">
-          {services.map((service, i) => (
+          {services.map((service) => (
             <div 
               key={service.id} 
               id={service.id}

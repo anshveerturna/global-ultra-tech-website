@@ -25,8 +25,6 @@ export default function Pricing() {
   const [condition, setCondition] = useState<'intact' | 'partial'>('intact')
   const [marketRate, setMarketRate] = useState<number>(24)
 
-  const selectedVehicle = vehicleOptions.find(v => v.value === vehicleType)
-
   const estimate = useMemo(() => {
     const typeFactor = CATEGORY_RATE[vehicleType] / 24
     const conditionFactor = condition === 'intact' ? 1 : 0.85
