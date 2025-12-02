@@ -45,7 +45,7 @@ export default function Pricing() {
       <section className="section">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <p className="text-caption uppercase tracking-widest mb-4">Pricing Calculator</p>
+            <p className="text-caption uppercase tracking-widest mb-4">Scrap Value Calculator</p>
             <h1 className="text-display gradient-text">
               Estimate Your Scrap Value
             </h1>
