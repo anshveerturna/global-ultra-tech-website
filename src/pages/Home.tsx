@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Home() {
+  const { theme } = useTheme()
+
   const processSteps = [
     { num: '01', title: 'Contact Us', desc: 'Reach out via phone, email, or our online form to initiate the scrapping process.' },
     { num: '02', title: 'Documentation', desc: 'Submit required documents online or visit our facility for verification.' },
@@ -32,8 +35,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/20 via-black to-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/20 via-transparent to-transparent" />
+        <div className={`absolute inset-0 ${
+          theme === 'dark'
+            ? 'bg-gradient-to-b from-emerald-950/20 via-black to-black'
+            : 'bg-gradient-to-b from-emerald-50 via-white to-white'
+        }`} />
+        <div className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] ${
+          theme === 'dark'
+            ? 'from-emerald-900/20 via-transparent to-transparent'
+            : 'from-emerald-100/50 via-transparent to-transparent'
+        }`} />
         
         <div className="relative container-custom py-24 md:py-32">
           {/* Text content */}
@@ -70,22 +81,22 @@ export default function Home() {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-12 pt-8 border-t border-white/10">
+            <div className={`mt-12 pt-8 border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'}`}>
               <p className="text-caption mb-4">Trusted & Verified</p>
               <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-2 text-sm text-neutral-400">
+                <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
                   <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   MoRTH Linked
                 </div>
-                <div className="flex items-center gap-2 text-sm text-neutral-400">
+                <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
                   <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   Vahan Registered
                 </div>
-                <div className="flex items-center gap-2 text-sm text-neutral-400">
+                <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
                   <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
@@ -101,7 +112,9 @@ export default function Home() {
             <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 via-emerald-500/10 to-emerald-500/20 rounded-3xl blur-2xl opacity-50" />
             
             {/* Image container */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className={`relative rounded-2xl overflow-hidden shadow-2xl ${
+              theme === 'dark' ? 'border border-white/10' : 'border border-black/10'
+            }`}>
               <img 
                 src="/images/glob1.jpg" 
                 alt="Global Ultra Tech - Professional Vehicle Scrapping Facility" 
@@ -115,13 +128,21 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="border-y border-white/5 bg-neutral-950">
+      <section className={`border-y ${
+        theme === 'dark' 
+          ? 'border-white/5 bg-neutral-950' 
+          : 'border-black/5 bg-slate-50'
+      }`}>
         <div className="container-custom">
           <div className="grid grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, i) => (
-              <div key={i} className={`py-12 px-6 text-center ${i !== stats.length - 1 ? 'border-r border-white/5' : ''}`}>
-                <div className="text-3xl md:text-4xl font-semibold text-white">{stat.value}</div>
-                <div className="mt-2 text-sm text-neutral-400">{stat.label}</div>
+              <div key={i} className={`py-12 px-6 text-center ${
+                i !== stats.length - 1 
+                  ? theme === 'dark' ? 'border-r border-white/5' : 'border-r border-black/5'
+                  : ''
+              }`}>
+                <div className="text-3xl md:text-4xl font-semibold text-[var(--color-text)]">{stat.value}</div>
+                <div className="mt-2 text-sm text-[var(--color-text-muted)]">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -134,7 +155,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-caption uppercase tracking-widest mb-4">Understanding RVSF</p>
-              <h2 className="text-headline text-white">
+              <h2 className="text-headline text-[var(--color-text)]">
                 What is a Registered Vehicle Scrapping Facility?
               </h2>
               <p className="mt-6 text-body-lg">
@@ -143,7 +164,7 @@ export default function Home() {
                 depollution, parts segregation, and material recovery while maintaining complete 
                 documentation for deregistration and certificates.
               </p>
-              <Link to="/services" className="inline-flex items-center gap-2 mt-8 text-emerald-400 font-medium hover:text-emerald-300 transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-2 mt-8 text-emerald-500 font-medium hover:text-emerald-400 transition-colors">
                 Learn more about our services
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -170,8 +191,8 @@ export default function Home() {
               { title: 'Eco-Responsible', desc: 'Sustainable recycling that reduces pollution and waste' },
             ].map((item, i) => (
               <div key={i} className="card p-6">
-                <h3 className="font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-neutral-400">{item.desc}</p>
+                <h3 className="font-semibold text-[var(--color-text)]">{item.title}</h3>
+                <p className="mt-2 text-sm text-[var(--color-text-muted)]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -186,7 +207,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-caption uppercase tracking-widest mb-4">The Process</p>
-            <h2 className="text-headline text-white">
+            <h2 className="text-headline text-[var(--color-text)]">
               Simple, Transparent Vehicle Scrapping
             </h2>
             <p className="mt-4 text-body">
@@ -199,7 +220,7 @@ export default function Home() {
             {processSteps.slice(0, 6).map((step, i) => (
               <div key={i} className="card p-8 group">
                 <div className="step-number mb-6">{step.num}</div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-lg font-semibold text-[var(--color-text)] group-hover:text-emerald-500 transition-colors">
                   {step.title}
                 </h3>
                 <p className="mt-3 text-body">{step.desc}</p>
@@ -208,11 +229,15 @@ export default function Home() {
           </div>
 
           {/* Final step - highlighted */}
-          <div className="mt-6 card p-8 bg-gradient-to-r from-emerald-950/50 to-neutral-900 border-emerald-900/50">
+          <div className={`mt-6 card p-8 ${
+            theme === 'dark'
+              ? 'bg-gradient-to-r from-emerald-950/50 to-neutral-900 border-emerald-900/50'
+              : 'bg-gradient-to-r from-emerald-50 to-slate-50 border-emerald-200'
+          }`}>
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="step-number">{processSteps[6].num}</div>
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-white">{processSteps[6].title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">{processSteps[6].title}</h3>
                 <p className="mt-2 text-body">{processSteps[6].desc}</p>
               </div>
               <Link to="/contact" className="btn-primary shrink-0">
@@ -231,7 +256,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-caption uppercase tracking-widest mb-4">Why Choose Us</p>
-            <h2 className="text-headline text-white">
+            <h2 className="text-headline text-[var(--color-text)]">
               Benefits & Incentives
             </h2>
             <p className="mt-4 text-body">
@@ -246,7 +271,7 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl mb-6">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">{benefit.title}</h3>
                 <p className="mt-3 text-body">{benefit.desc}</p>
               </div>
             ))}
@@ -255,13 +280,15 @@ export default function Home() {
       </section>
 
       {/* MoRTH Section */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${
+        theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'
+      }`}>
         <div className="container-custom">
           <div className="card-glass p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-caption uppercase tracking-widest mb-4">Government Authorized</p>
-                <h2 className="text-headline text-white">
+                <h2 className="text-headline text-[var(--color-text)]">
                   MoRTH & Vahan Linkage
                 </h2>
                 <p className="mt-6 text-body-lg">
@@ -270,23 +297,29 @@ export default function Home() {
                   certificates, and deregistration are handled within recognized national systems.
                 </p>
                 <div className="grid grid-cols-3 gap-4 mt-8">
-                  <div className="text-center p-4 rounded-xl bg-white/5">
-                    <div className="text-2xl font-semibold text-emerald-400">✓</div>
-                    <div className="mt-2 text-xs text-neutral-400">Government Linked</div>
+                  <div className={`text-center p-4 rounded-xl ${
+                    theme === 'dark' ? 'bg-white/5' : 'bg-black/5'
+                  }`}>
+                    <div className="text-2xl font-semibold text-emerald-500">✓</div>
+                    <div className="mt-2 text-xs text-[var(--color-text-muted)]">Government Linked</div>
                   </div>
-                  <div className="text-center p-4 rounded-xl bg-white/5">
-                    <div className="text-2xl font-semibold text-emerald-400">✓</div>
-                    <div className="mt-2 text-xs text-neutral-400">Recognized Certs</div>
+                  <div className={`text-center p-4 rounded-xl ${
+                    theme === 'dark' ? 'bg-white/5' : 'bg-black/5'
+                  }`}>
+                    <div className="text-2xl font-semibold text-emerald-500">✓</div>
+                    <div className="mt-2 text-xs text-[var(--color-text-muted)]">Recognized Certs</div>
                   </div>
-                  <div className="text-center p-4 rounded-xl bg-white/5">
-                    <div className="text-2xl font-semibold text-emerald-400">✓</div>
-                    <div className="mt-2 text-xs text-neutral-400">Easy Deregistration</div>
+                  <div className={`text-center p-4 rounded-xl ${
+                    theme === 'dark' ? 'bg-white/5' : 'bg-black/5'
+                  }`}>
+                    <div className="text-2xl font-semibold text-emerald-500">✓</div>
+                    <div className="mt-2 text-xs text-[var(--color-text-muted)]">Easy Deregistration</div>
                   </div>
                 </div>
               </div>
               {/* RVSF MoRTH Logo */}
               <div className="flex justify-center">
-                <div className="relative p-8 rounded-2xl bg-white/95 shadow-2xl">
+                <div className="relative p-8 rounded-2xl bg-white shadow-2xl">
                   <img 
                     src="/images/glob3.png" 
                     alt="RVSF - Registered Vehicle Scrapping Facility - Government of India" 
@@ -320,7 +353,7 @@ export default function Home() {
                 from documentation to final certificate.
               </p>
               <div className="mt-10 flex flex-wrap justify-center gap-4">
-                <Link to="/contact" className="btn-primary !bg-white !text-emerald-900 hover:!bg-neutral-100">
+                <Link to="/contact" className="btn-primary !bg-white !text-emerald-900 hover:!bg-slate-100">
                   Request Scrapping
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

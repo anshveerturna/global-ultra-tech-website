@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Contact() {
+  const { theme } = useTheme()
   const [requestForm, setRequestForm] = useState({
     name: '', email: '', phone: '', vehicleType: '', registrationNumber: '', message: ''
   })
@@ -47,7 +49,7 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white">Visit Us</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text)]">Visit Us</h3>
               <p className="mt-3 text-body">
                 Village Bishanpur Jagir<br />
                 District Rampur-244921<br />
@@ -60,10 +62,10 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white">Call Us</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text)]">Call Us</h3>
               <p className="mt-3 text-body">
                 <a href="tel:+919876543210" className="hover:text-emerald-400 transition-colors">+91 98765 43210</a><br />
-                <span className="text-neutral-500">Mon–Sat, 9AM–6PM</span>
+                <span className="text-[var(--color-text-muted)]">Mon–Sat, 9AM–6PM</span>
               </p>
             </div>
             <div className="card p-8">
@@ -72,10 +74,10 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white">Email Us</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text)]">Email Us</h3>
               <p className="mt-3 text-body">
                 <a href="mailto:info@globalultratech.in" className="hover:text-emerald-400 transition-colors">info@globalultratech.in</a><br />
-                <span className="text-neutral-500">Response within 24 hours</span>
+                <span className="text-[var(--color-text-muted)]">Response within 24 hours</span>
               </p>
             </div>
           </div>
@@ -83,12 +85,12 @@ export default function Contact() {
       </section>
 
       {/* Forms */}
-      <section className="section-lg bg-neutral-950">
+      <section className={`section-lg ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Request Scrapping Form */}
             <div className="card p-8 md:p-10">
-              <h2 className="text-headline text-white">Request Scrapping</h2>
+              <h2 className="text-headline text-[var(--color-text)]">Request Scrapping</h2>
               <p className="mt-2 text-body">
                 Fill in your vehicle details and we'll get back to you with a quote.
               </p>
@@ -175,7 +177,7 @@ export default function Contact() {
 
             {/* Get Pickup Form */}
             <div className="card p-8 md:p-10">
-              <h2 className="text-headline text-white">Schedule Pickup</h2>
+              <h2 className="text-headline text-[var(--color-text)]">Schedule Pickup</h2>
               <p className="mt-2 text-body">
                 Can't bring your vehicle? We offer paid pickup service across the region.
               </p>
@@ -245,7 +247,7 @@ export default function Contact() {
                   Schedule Pickup
                 </button>
               </form>
-              <p className="mt-6 text-sm text-neutral-500 text-center">
+              <p className="mt-6 text-sm text-[var(--color-text-muted)] text-center">
                 * Pickup charges vary based on distance and vehicle type
               </p>
             </div>
@@ -258,7 +260,7 @@ export default function Contact() {
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="text-caption uppercase tracking-widest mb-4">Our Location</p>
-            <h2 className="text-headline text-white">Find Us</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Find Us</h2>
             <p className="mt-4 text-body-lg">
               Visit our facility in Bishanpur Jagir, Rampur — easily accessible from the city center and surrounding districts.
             </p>
@@ -270,9 +272,9 @@ export default function Contact() {
             <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 via-emerald-500/10 to-emerald-500/20 rounded-3xl blur-xl opacity-50" />
             
             {/* Map wrapper */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-900">
+            <div className={`relative rounded-2xl overflow-hidden border ${theme === 'dark' ? 'border-white/10 bg-neutral-900' : 'border-black/10 bg-white'}`}>
               {/* Top bar with location info */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 border-b border-white/10 bg-neutral-900/80 backdrop-blur-sm">
+              <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 border-b ${theme === 'dark' ? 'border-white/10 bg-neutral-900/80' : 'border-black/10 bg-white/80'} backdrop-blur-sm`}>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
                     <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,15 +283,15 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Global Ultra Tech RVSF</h3>
-                    <p className="text-sm text-neutral-400">Village Bishanpur Jagir, District Rampur-244921, UP</p>
+                    <h3 className="font-semibold text-[var(--color-text)]">Global Ultra Tech RVSF</h3>
+                    <p className="text-sm text-[var(--color-text-muted)]">Village Bishanpur Jagir, District Rampur-244921, UP</p>
                   </div>
                 </div>
                 <a
                   href="https://maps.app.goo.gl/LXL64Zq52F1RzfHy9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-white hover:bg-white/10 hover:border-emerald-500/30 transition-all"
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg ${theme === 'dark' ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-black/5 border-black/10 hover:bg-black/10'} text-sm font-medium text-[var(--color-text)] hover:border-emerald-500/30 transition-all`}
                 >
                   <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -316,21 +318,21 @@ export default function Contact() {
               </div>
 
               {/* Bottom info bar */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5">
-                <div className="p-4 md:p-6 bg-neutral-900 text-center">
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Working Hours</div>
-                  <div className="text-sm font-medium text-white">Mon–Sat, 9AM–6PM</div>
+              <div className={`grid grid-cols-2 md:grid-cols-4 gap-px ${theme === 'dark' ? 'bg-white/5' : 'bg-black/5'}`}>
+                <div className={`p-4 md:p-6 ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} text-center`}>
+                  <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">Working Hours</div>
+                  <div className="text-sm font-medium text-[var(--color-text)]">Mon–Sat, 9AM–6PM</div>
                 </div>
-                <div className="p-4 md:p-6 bg-neutral-900 text-center">
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">District</div>
-                  <div className="text-sm font-medium text-white">Rampur, UP</div>
+                <div className={`p-4 md:p-6 ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} text-center`}>
+                  <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">District</div>
+                  <div className="text-sm font-medium text-[var(--color-text)]">Rampur, UP</div>
                 </div>
-                <div className="p-4 md:p-6 bg-neutral-900 text-center">
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">PIN Code</div>
-                  <div className="text-sm font-medium text-white">244921</div>
+                <div className={`p-4 md:p-6 ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} text-center`}>
+                  <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">PIN Code</div>
+                  <div className="text-sm font-medium text-[var(--color-text)]">244921</div>
                 </div>
-                <div className="p-4 md:p-6 bg-neutral-900 text-center">
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Pickup Service</div>
+                <div className={`p-4 md:p-6 ${theme === 'dark' ? 'bg-neutral-900' : 'bg-white'} text-center`}>
+                  <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">Pickup Service</div>
                   <div className="text-sm font-medium text-emerald-400">Available</div>
                 </div>
               </div>

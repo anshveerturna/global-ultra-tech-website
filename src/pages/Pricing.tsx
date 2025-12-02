@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 type VehicleType = 'two-wheeler' | 'car' | 'suv' | 'lcv' | 'hcv-bus'
 
@@ -20,6 +21,7 @@ const CATEGORY_RATE: Record<VehicleType, number> = {
 }
 
 export default function Pricing() {
+  const { theme } = useTheme()
   const [vehicleType, setVehicleType] = useState<VehicleType>('car')
   const [weightKg, setWeightKg] = useState<number>(1000)
   const [condition, setCondition] = useState<'intact' | 'partial'>('intact')
@@ -62,7 +64,7 @@ export default function Pricing() {
             {/* Form */}
             <div className="lg:col-span-2">
               <div className="card p-8 sticky top-24">
-                <h2 className="text-lg font-semibold text-white mb-6">Vehicle Details</h2>
+                <h2 className="text-lg font-semibold text-[var(--color-text)] mb-6">Vehicle Details</h2>
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div>
                     <label className="block text-sm font-medium text-neutral-300 mb-2">Vehicle Type</label>
@@ -74,10 +76,10 @@ export default function Pricing() {
                         const opt = vehicleOptions.find(v => v.value === type)
                         if (opt) setWeightKg(opt.avgWeight)
                       }}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                      className={`w-full px-4 py-3 rounded-xl ${theme === 'dark' ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'} text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-emerald-500/50`}
                     >
                       {vehicleOptions.map((opt) => (
-                        <option key={opt.value} value={opt.value} className="bg-neutral-900">
+                        <option key={opt.value} value={opt.value} className={theme === 'dark' ? 'bg-neutral-900' : 'bg-white'}>
                           {opt.label}
                         </option>
                       ))}
@@ -94,9 +96,9 @@ export default function Pricing() {
                       step={10}
                       value={weightKg}
                       onChange={(e) => setWeightKg(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                      className={`w-full px-4 py-3 rounded-xl ${theme === 'dark' ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'} text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-emerald-500/50`}
                     />
-                    <p className="mt-2 text-xs text-neutral-500">
+                    <p className="mt-2 text-xs text-[var(--color-text-muted)]">
                       Tip: Check manufacturer specs or RC for curb weight
                     </p>
                   </div>
@@ -110,9 +112,9 @@ export default function Pricing() {
                           name="condition"
                           checked={condition === 'intact'}
                           onChange={() => setCondition('intact')}
-                          className="w-4 h-4 text-emerald-500 bg-white/5 border-white/20 focus:ring-emerald-500/50"
+                          className={`w-4 h-4 text-emerald-500 ${theme === 'dark' ? 'bg-white/5 border-white/20' : 'bg-black/5 border-black/20'} focus:ring-emerald-500/50`}
                         />
-                        <span className="text-sm text-neutral-300">Intact</span>
+                        <span className="text-sm text-[var(--color-text-muted)]">Intact</span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
@@ -120,9 +122,9 @@ export default function Pricing() {
                           name="condition"
                           checked={condition === 'partial'}
                           onChange={() => setCondition('partial')}
-                          className="w-4 h-4 text-emerald-500 bg-white/5 border-white/20 focus:ring-emerald-500/50"
+                          className={`w-4 h-4 text-emerald-500 ${theme === 'dark' ? 'bg-white/5 border-white/20' : 'bg-black/5 border-black/20'} focus:ring-emerald-500/50`}
                         />
-                        <span className="text-sm text-neutral-300">Partial / Damaged</span>
+                        <span className="text-sm text-[var(--color-text-muted)]">Partial / Damaged</span>
                       </label>
                     </div>
                   </div>
@@ -137,9 +139,9 @@ export default function Pricing() {
                       step={1}
                       value={marketRate}
                       onChange={(e) => setMarketRate(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                      className={`w-full px-4 py-3 rounded-xl ${theme === 'dark' ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'} text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-emerald-500/50`}
                     />
-                    <p className="mt-2 text-xs text-neutral-500">
+                    <p className="mt-2 text-xs text-[var(--color-text-muted)]">
                       Adjust based on current scrap metal prices
                     </p>
                   </div>
@@ -152,14 +154,14 @@ export default function Pricing() {
               {/* Estimate Card */}
               <div className="card p-8 bg-gradient-to-br from-emerald-950/50 to-neutral-900 border-emerald-900/50">
                 <p className="text-sm font-medium text-emerald-400 uppercase tracking-wider">Estimated Scrap Value</p>
-                <div className="mt-4 text-5xl md:text-6xl font-semibold text-white tracking-tight">
+                <div className="mt-4 text-5xl md:text-6xl font-semibold text-[var(--color-text)] tracking-tight">
                   {fmt(estimate.base)}
                 </div>
-                <div className="mt-2 text-neutral-400">
+                <div className="mt-2 text-[var(--color-text-muted)]">
                   Range: {fmt(estimate.low)} — {fmt(estimate.high)}
                 </div>
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-sm text-neutral-400">
+                <div className={`mt-6 pt-6 border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'}`}>
+                  <p className="text-sm text-[var(--color-text-muted)]">
                     This is an indicative estimate based on your inputs. Final value will be confirmed 
                     after documentation and physical inspection as per MoRTH and relevant authority norms.
                   </p>
@@ -168,7 +170,7 @@ export default function Pricing() {
 
               {/* How we calculate */}
               <div className="card p-8">
-                <h3 className="text-lg font-semibold text-white mb-4">How We Calculate</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)] mb-4">How We Calculate</h3>
                 <ul className="space-y-3">
                   {[
                     'Weight × market base rate, adjusted for vehicle category',
@@ -190,7 +192,7 @@ export default function Pricing() {
               {/* CTA */}
               <div className="card p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Ready to Proceed?</h3>
+                  <h3 className="text-lg font-semibold text-[var(--color-text)]">Ready to Proceed?</h3>
                   <p className="mt-1 text-body">Share your details and we'll confirm the valuation.</p>
                 </div>
                 <Link to="/contact" className="btn-primary shrink-0">
@@ -203,7 +205,7 @@ export default function Pricing() {
       </section>
 
       {/* Disclaimer */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="card-glass p-8 md:p-12">
             <div className="flex items-start gap-4">
@@ -211,7 +213,7 @@ export default function Pricing() {
                 ⚠️
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Important Disclaimer</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">Important Disclaimer</h3>
                 <p className="mt-2 text-body">
                   The calculator provides an indicative estimate only. Actual scrap value is determined 
                   by MoRTH and relevant authority guidelines after physical verification, documentation 

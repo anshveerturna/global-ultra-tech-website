@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Services() {
+  const { theme } = useTheme()
+  
   const services = [
     {
       id: 'vehicle-scrapping',
@@ -82,7 +85,11 @@ export default function Services() {
               <a 
                 key={s.id} 
                 href={`#${s.id}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-neutral-300 hover:bg-white/10 hover:text-white transition-colors"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm transition-colors ${
+                  theme === 'dark'
+                    ? 'bg-white/5 border border-white/10 text-neutral-300 hover:bg-white/10 hover:text-white'
+                    : 'bg-black/5 border border-black/10 text-slate-600 hover:bg-black/10 hover:text-slate-900'
+                }`}
               >
                 <span>{s.icon}</span>
                 {s.title}
@@ -106,7 +113,7 @@ export default function Services() {
                   <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-3xl mb-6">
                     {service.icon}
                   </div>
-                  <h2 className="text-title text-white">{service.title}</h2>
+                  <h2 className="text-title text-[var(--color-text)]">{service.title}</h2>
                   <p className="mt-4 text-body-lg">{service.short}</p>
                   <Link to="/contact" className="btn-primary mt-8">
                     Get Started
@@ -116,7 +123,7 @@ export default function Services() {
                   </Link>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Key Details</h3>
+                  <h3 className="text-sm font-semibold text-[var(--color-text)] uppercase tracking-wider mb-4">Key Details</h3>
                   <ul className="space-y-4">
                     {service.details.map((detail, j) => (
                       <li key={j} className="flex items-start gap-3">
@@ -135,10 +142,10 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="card-glass p-8 md:p-12 text-center">
-            <h2 className="text-headline text-white">Need Help Choosing a Service?</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Need Help Choosing a Service?</h2>
             <p className="mt-4 text-body-lg max-w-xl mx-auto">
               Our team is here to guide you through documentation and next steps. 
               Reach out and we'll help you get started.

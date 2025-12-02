@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 export default function About() {
+  const { theme } = useTheme()
   const values = [
     { icon: '🛡️', title: 'Safety & Compliance', desc: 'Strict adherence to MoRTH guidelines and environmental safety standards in every operation.' },
     { icon: '🤝', title: 'Integrity & Transparency', desc: 'Honest valuations, clear documentation, and complete visibility throughout the process.' },
@@ -48,7 +50,7 @@ export default function About() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="card p-8 md:p-12">
-              <h2 className="text-headline text-white">Our Story</h2>
+              <h2 className="text-headline text-[var(--color-text)]">Our Story</h2>
               <p className="mt-6 text-body-lg">
                 Global Ultra Tech was established in 2020 as one of the pioneering Registered Vehicle 
                 Scrapping Facilities in Uttar Pradesh, responding to India's national Vehicle Scrappage Policy.
@@ -66,29 +68,29 @@ export default function About() {
             </div>
             <div>
               <div className="card p-8">
-                <h3 className="text-lg font-semibold text-white mb-6">Location</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)] mb-6">Location</h3>
                 <div className="flex items-start gap-4">
                   <svg className="w-6 h-6 text-emerald-500 shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <div>
-                    <div className="text-white font-medium">Village Bishanpur Jagir</div>
-                    <div className="text-neutral-400">District Rampur-244921</div>
-                    <div className="text-neutral-400">Uttar Pradesh, India</div>
+                    <div className="text-[var(--color-text)] font-medium">Village Bishanpur Jagir</div>
+                    <div className="text-[var(--color-text-muted)]">District Rampur-244921</div>
+                    <div className="text-[var(--color-text-muted)]">Uttar Pradesh, India</div>
                   </div>
                 </div>
               </div>
               <div className="card p-8 mt-6">
-                <h3 className="text-lg font-semibold text-white mb-6">Credentials</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)] mb-6">Credentials</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <span className="badge">MoRTH Linked</span>
-                    <span className="text-sm text-neutral-400">Ministry of Road Transport & Highways</span>
+                    <span className="text-sm text-[var(--color-text-muted)]">Ministry of Road Transport & Highways</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="badge">Vahan Registered</span>
-                    <span className="text-sm text-neutral-400">National Vehicle Registry</span>
+                    <span className="text-sm text-[var(--color-text-muted)]">National Vehicle Registry</span>
                   </div>
                 </div>
               </div>
@@ -98,10 +100,10 @@ export default function About() {
       </section>
 
       {/* Mission & Values */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-headline text-white">Mission & Values</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Mission & Values</h2>
             <p className="mt-4 text-body-lg">
               To deliver safe, transparent, and efficient vehicle scrappage services that protect 
               the environment, support circular economy goals, and simplify the process for vehicle owners.
@@ -113,7 +115,7 @@ export default function About() {
                 <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-3xl mx-auto mb-6">
                   {value.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{value.title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">{value.title}</h3>
                 <p className="mt-3 text-body">{value.desc}</p>
               </div>
             ))}
@@ -127,7 +129,7 @@ export default function About() {
           <div className="card p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-headline text-white">What We Do</h2>
+                <h2 className="text-headline text-[var(--color-text)]">What We Do</h2>
                 <p className="mt-4 text-body-lg">
                   We provide comprehensive vehicle scrapping services under MoRTH guidelines, 
                   from initial contact to final certificate issuance.
@@ -157,10 +159,10 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-headline text-white">Our Journey</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Our Journey</h2>
           </div>
           <div className="max-w-2xl mx-auto">
             <div className="space-y-6">
@@ -181,7 +183,7 @@ export default function About() {
       <section className="section-lg">
         <div className="container-custom">
           <div className="card p-8 md:p-12 text-center">
-            <h2 className="text-headline text-white">Ready to Work With Us?</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Ready to Work With Us?</h2>
             <p className="mt-4 text-body-lg max-w-xl mx-auto">
               Our team is here to guide you through the entire vehicle scrapping process.
             </p>

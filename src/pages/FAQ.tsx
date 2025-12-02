@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 interface FAQItem {
   question: string
@@ -49,6 +50,7 @@ const faqs: FAQItem[] = [
 ]
 
 export default function FAQ() {
+  const { theme } = useTheme()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const toggleFAQ = (index: number) => {
@@ -87,8 +89,8 @@ export default function FAQ() {
                     onClick={() => toggleFAQ(index)}
                     className="w-full px-6 py-5 flex items-center justify-between text-left"
                   >
-                    <span className="text-lg font-medium text-white pr-4">{faq.question}</span>
-                    <span className={`shrink-0 w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
+                    <span className="text-lg font-medium text-[var(--color-text)] pr-4">{faq.question}</span>
+                    <span className={`shrink-0 w-8 h-8 rounded-full ${theme === 'dark' ? 'bg-neutral-800' : 'bg-slate-200'} flex items-center justify-center transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
                       <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -97,7 +99,7 @@ export default function FAQ() {
                   <div
                     className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}
                   >
-                    <div className="px-6 pb-6 text-body border-t border-neutral-800 pt-4">
+                    <div className={`px-6 pb-6 text-body border-t ${theme === 'dark' ? 'border-neutral-800' : 'border-slate-200'} pt-4`}>
                       {faq.answer}
                     </div>
                   </div>
@@ -109,10 +111,10 @@ export default function FAQ() {
       </section>
 
       {/* Quick Links */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-headline text-white">Still Have Questions?</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Still Have Questions?</h2>
             <p className="mt-4 text-body-lg">
               Our team is ready to help. Reach out to us or explore more about our services.
             </p>
@@ -124,7 +126,7 @@ export default function FAQ() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">Contact Us</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text)] group-hover:text-emerald-400 transition-colors">Contact Us</h3>
               <p className="mt-2 text-body">Get personalized assistance</p>
             </a>
             <a href="/services" className="card p-8 text-center group hover:border-emerald-500/50 transition-colors">
@@ -133,7 +135,7 @@ export default function FAQ() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">Our Services</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text)] group-hover:text-emerald-400 transition-colors">Our Services</h3>
               <p className="mt-2 text-body">Learn what we offer</p>
             </a>
             <a href="/pricing" className="card p-8 text-center group hover:border-emerald-500/50 transition-colors">
@@ -142,7 +144,7 @@ export default function FAQ() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">Pricing Calculator</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text)] group-hover:text-emerald-400 transition-colors">Pricing Calculator</h3>
               <p className="mt-2 text-body">Get an estimate</p>
             </a>
           </div>
@@ -153,7 +155,7 @@ export default function FAQ() {
       <section className="section-lg">
         <div className="container-custom">
           <div className="card p-8 md:p-12 text-center bg-gradient-to-br from-emerald-500/10 to-transparent">
-            <h2 className="text-headline text-white">Ready to Scrap Your Vehicle?</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Ready to Scrap Your Vehicle?</h2>
             <p className="mt-4 text-body-lg max-w-xl mx-auto">
               Join thousands of vehicle owners who have trusted Global Ultra Tech for 
               compliant, transparent, and efficient vehicle scrapping.

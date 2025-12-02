@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 export default function PolicyCompliance() {
+  const { theme } = useTheme()
   const complianceMeasures = [
     {
       icon: '🔧',
@@ -57,7 +59,7 @@ export default function PolicyCompliance() {
           <div className="card p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-headline text-white">Vehicle Scrappage Policy</h2>
+                <h2 className="text-headline text-[var(--color-text)]">Vehicle Scrappage Policy</h2>
                 <p className="mt-6 text-body-lg">
                   The national Vehicle Scrappage Policy promotes safe and environmentally sound scrapping 
                   of end-of-life vehicles. It improves road safety, reduces emissions, and enables formal 
@@ -75,13 +77,13 @@ export default function PolicyCompliance() {
                   { label: 'Formal Recycling', desc: 'Standardized material recovery process' },
                   { label: 'Traceability', desc: 'Complete documentation and audit trail' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white/5">
+                  <div key={i} className={`flex items-start gap-4 p-4 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-black/5'}`}>
                     <svg className="w-6 h-6 text-emerald-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <div className="font-medium text-white">{item.label}</div>
-                      <div className="text-sm text-neutral-400">{item.desc}</div>
+                      <div className="font-medium text-[var(--color-text)]">{item.label}</div>
+                      <div className="text-sm text-[var(--color-text-muted)]">{item.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -92,10 +94,10 @@ export default function PolicyCompliance() {
       </section>
 
       {/* Regulatory Bodies */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-headline text-white">Regulatory Bodies</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Regulatory Bodies</h2>
             <p className="mt-4 text-body">
               Our operations are governed by and aligned with multiple regulatory authorities.
             </p>
@@ -110,7 +112,7 @@ export default function PolicyCompliance() {
                 <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-2xl mx-auto mb-6">
                   🏛️
                 </div>
-                <h3 className="text-lg font-semibold text-white">{body.title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">{body.title}</h3>
                 <p className="mt-3 text-body">{body.desc}</p>
               </div>
             ))}
@@ -122,7 +124,7 @@ export default function PolicyCompliance() {
       <section className="section-lg">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-headline text-white">Compliance Measures</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Compliance Measures</h2>
             <p className="mt-4 text-body">
               We implement rigorous measures at every stage of the scrapping process.
             </p>
@@ -133,7 +135,7 @@ export default function PolicyCompliance() {
                 <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl mb-6">
                   {measure.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{measure.title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-text)]">{measure.title}</h3>
                 <p className="mt-3 text-body">{measure.desc}</p>
               </div>
             ))}
@@ -142,12 +144,12 @@ export default function PolicyCompliance() {
       </section>
 
       {/* Process Checkpoints */}
-      <section className="section bg-neutral-950">
+      <section className={`section ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
         <div className="container-custom">
           <div className="card-glass p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-headline text-white">Process Checkpoints</h2>
+                <h2 className="text-headline text-[var(--color-text)]">Process Checkpoints</h2>
                 <p className="mt-4 text-body-lg">
                   Every vehicle goes through a series of documented checkpoints to ensure 
                   complete compliance and traceability.
@@ -172,7 +174,7 @@ export default function PolicyCompliance() {
       <section className="section-lg">
         <div className="container-custom">
           <div className="card p-8 md:p-12 text-center">
-            <h2 className="text-headline text-white">Our Commitment</h2>
+            <h2 className="text-headline text-[var(--color-text)]">Our Commitment</h2>
             <p className="mt-4 text-body-lg max-w-2xl mx-auto">
               We continuously review our operating practices against evolving policy guidance and 
               local directives to maintain the highest standards of safety, environmental stewardship, 
