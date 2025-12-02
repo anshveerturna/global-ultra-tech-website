@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import SEO, { seoConfig } from '../components/SEO'
 
 export default function Contact() {
   const { theme } = useTheme()
@@ -22,6 +23,8 @@ export default function Contact() {
 
   return (
     <>
+      <SEO {...seoConfig.contact} />
+      
       {/* Hero */}
       <section className="section">
         <div className="container-custom">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import SEO, { seoConfig } from '../components/SEO'
 
 export default function Home() {
   const { theme } = useTheme()
@@ -32,6 +33,8 @@ export default function Home() {
 
   return (
     <>
+      <SEO {...seoConfig.home} />
+      
       {/* Hero Section */}
       <section className="relative">
         {/* Background gradient */}

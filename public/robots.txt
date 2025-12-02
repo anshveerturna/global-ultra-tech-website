@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://globalultratech.com/sitemap.xml
+# Sitemap
+Sitemap: https://global-ultra-tech-website.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import SEO, { seoConfig } from '../components/SEO'
 
 export default function PolicyCompliance() {
   const { theme } = useTheme()
@@ -37,6 +38,8 @@ export default function PolicyCompliance() {
 
   return (
     <>
+      <SEO {...seoConfig.policyCompliance} />
+      
       {/* Hero */}
       <section className="section">
         <div className="container-custom">

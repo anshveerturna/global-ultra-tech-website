@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import SEO, { seoConfig } from '../components/SEO'
 
 type VehicleType = 'two-wheeler' | 'car' | 'suv' | 'lcv' | 'hcv-bus'
 
@@ -20,7 +21,7 @@ const CATEGORY_RATE: Record<VehicleType, number> = {
   'hcv-bus': 26,
 }
 
-export default function Pricing() {
+export default function ScrapValue() {
   const { theme } = useTheme()
   const [vehicleType, setVehicleType] = useState<VehicleType>('car')
   const [weightKg, setWeightKg] = useState<number>(1000)
@@ -41,6 +42,8 @@ export default function Pricing() {
 
   return (
     <>
+      <SEO {...seoConfig.scrapValue} />
+      
       {/* Hero */}
       <section className="section">
         <div className="container-custom">

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import SEO, { seoConfig } from '../components/SEO'
 
 interface FAQItem {
   question: string
@@ -59,6 +60,8 @@ export default function FAQ() {
 
   return (
     <>
+      <SEO {...seoConfig.faq} />
+      
       {/* Hero */}
       <section className="section">
         <div className="container-custom">

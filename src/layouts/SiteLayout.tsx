@@ -31,7 +31,7 @@ function Header() {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/services', label: 'Services' },
-    { to: '/pricing', label: 'Scrap Value' },
+    { to: '/scrap-value', label: 'Scrap Value' },
     { to: '/policy-compliance', label: 'Compliance' },
     { to: '/about', label: 'About' },
     { to: '/faq', label: 'FAQ' },
@@ -163,7 +163,7 @@ function Footer() {
     ],
     company: [
       { label: 'About Us', to: '/about' },
-      { label: 'Pricing', to: '/pricing' },
+      { label: 'Scrap Value', to: '/scrap-value' },
       { label: 'Policy & Compliance', to: '/policy-compliance' },
       { label: 'FAQ', to: '/faq' },
     ],

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import SEO, { seoConfig } from '../components/SEO'
 
 export default function About() {
   const { theme } = useTheme()
@@ -28,6 +29,8 @@ export default function About() {
 
   return (
     <>
+      <SEO {...seoConfig.about} />
+      
       {/* Hero */}
       <section className="section">
         <div className="container-custom">
