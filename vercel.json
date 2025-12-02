@@ -1,5 +1,15 @@
 {
+  "redirects": [
+    {
+      "source": "/pricing",
+      "destination": "/scrap-value",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
