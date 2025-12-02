@@ -55,9 +55,11 @@ function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
-              <span className="text-sm font-bold text-white">G</span>
-            </div>
+            <img 
+              src="/images/glob3.png" 
+              alt="RVSF - Registered Vehicle Scrapping Facility" 
+              className="h-10 md:h-12 w-auto"
+            />
             <span className="text-base font-semibold text-[var(--color-text)] tracking-tight">
               Global Ultra Tech
             </span>
@@ -170,9 +172,11 @@ function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
-                <span className="text-sm font-bold text-white">G</span>
-              </div>
+              <img 
+                src="/images/glob3.png" 
+                alt="RVSF - Registered Vehicle Scrapping Facility" 
+                className="h-10 w-auto"
+              />
               <span className="text-base font-semibold text-[var(--color-text)] tracking-tight">
                 Global Ultra Tech
               </span>

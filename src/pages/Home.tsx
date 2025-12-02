@@ -317,16 +317,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* RVSF MoRTH Logo */}
-              <div className="flex justify-center">
-                <div className="relative p-8 rounded-2xl bg-white shadow-2xl">
-                  <img 
-                    src="/images/glob3.png" 
-                    alt="RVSF - Registered Vehicle Scrapping Facility - Government of India" 
-                    className="w-full max-w-md"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
