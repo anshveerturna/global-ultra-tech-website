@@ -97,46 +97,62 @@ export default function Contact() {
               <form onSubmit={handleRequestSubmit} className="mt-8 space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-300 mb-2">Full Name *</label>
+                    <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Full Name *</label>
                     <input
                       type="text"
                       required
                       value={requestForm.name}
                       onChange={e => setRequestForm({...requestForm, name: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                      className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                        theme === 'dark' 
+                          ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                          : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                      }`}
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-neutral-300 mb-2">Phone *</label>
+                    <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Phone *</label>
                     <input
                       type="tel"
                       required
                       value={requestForm.phone}
                       onChange={e => setRequestForm({...requestForm, phone: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                      className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                        theme === 'dark' 
+                          ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                          : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                      }`}
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Email</label>
                   <input
                     type="email"
                     value={requestForm.email}
                     onChange={e => setRequestForm({...requestForm, email: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                    className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                      theme === 'dark' 
+                        ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                        : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                    }`}
                     placeholder="you@example.com"
                   />
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-300 mb-2">Vehicle Type *</label>
+                    <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Vehicle Type *</label>
                     <select
                       required
                       value={requestForm.vehicleType}
                       onChange={e => setRequestForm({...requestForm, vehicleType: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                      className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                        theme === 'dark' 
+                          ? 'bg-neutral-800 border-neutral-700 text-white' 
+                          : 'bg-white border-slate-300 text-slate-900'
+                      }`}
                     >
                       <option value="">Select type</option>
                       <option value="two-wheeler">Two Wheeler</option>
@@ -148,24 +164,32 @@ export default function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-neutral-300 mb-2">Registration Number *</label>
+                    <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Registration Number *</label>
                     <input
                       type="text"
                       required
                       value={requestForm.registrationNumber}
                       onChange={e => setRequestForm({...requestForm, registrationNumber: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                      className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                        theme === 'dark' 
+                          ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                          : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                      }`}
                       placeholder="UP-XX-XX-XXXX"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Additional Details</label>
+                  <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Additional Details</label>
                   <textarea
                     rows={4}
                     value={requestForm.message}
                     onChange={e => setRequestForm({...requestForm, message: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors resize-none"
+                    className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors resize-none ${
+                      theme === 'dark' 
+                        ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                        : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                    }`}
                     placeholder="Any additional information about your vehicle..."
                   />
                 </div>
@@ -183,46 +207,62 @@ export default function Contact() {
               </p>
               <form onSubmit={handlePickupSubmit} className="mt-8 space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Full Name *</label>
+                  <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Full Name *</label>
                   <input
                     type="text"
                     required
                     value={pickupForm.name}
                     onChange={e => setPickupForm({...pickupForm, name: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                    className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                      theme === 'dark' 
+                        ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                        : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                    }`}
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Phone *</label>
+                  <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Phone *</label>
                   <input
                     type="tel"
                     required
                     value={pickupForm.phone}
                     onChange={e => setPickupForm({...pickupForm, phone: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                    className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                      theme === 'dark' 
+                        ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                        : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                    }`}
                     placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-neutral-300 mb-2">Pickup Address *</label>
+                  <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Pickup Address *</label>
                   <textarea
                     rows={3}
                     required
                     value={pickupForm.address}
                     onChange={e => setPickupForm({...pickupForm, address: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors resize-none"
+                    className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors resize-none ${
+                      theme === 'dark' 
+                        ? 'bg-neutral-800 border-neutral-700 text-white placeholder-neutral-500' 
+                        : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
+                    }`}
                     placeholder="Full address where vehicle is located..."
                   />
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-300 mb-2">Vehicle Type *</label>
+                    <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Vehicle Type *</label>
                     <select
                       required
                       value={pickupForm.vehicleType}
                       onChange={e => setPickupForm({...pickupForm, vehicleType: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                      className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                        theme === 'dark' 
+                          ? 'bg-neutral-800 border-neutral-700 text-white' 
+                          : 'bg-white border-slate-300 text-slate-900'
+                      }`}
                     >
                       <option value="">Select type</option>
                       <option value="two-wheeler">Two Wheeler</option>
@@ -234,12 +274,16 @@ export default function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-neutral-300 mb-2">Preferred Date</label>
+                    <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Preferred Date</label>
                     <input
                       type="date"
                       value={pickupForm.preferredDate}
                       onChange={e => setPickupForm({...pickupForm, preferredDate: e.target.value})}
-                      className="w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                      className={`w-full px-4 py-3 rounded-lg border focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors ${
+                        theme === 'dark' 
+                          ? 'bg-neutral-800 border-neutral-700 text-white' 
+                          : 'bg-white border-slate-300 text-slate-900'
+                      }`}
                     />
                   </div>
                 </div>

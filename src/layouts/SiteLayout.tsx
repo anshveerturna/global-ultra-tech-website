@@ -52,15 +52,20 @@ function Header() {
           : 'bg-white/80 border-black/5'
       }`} />
       <nav className="relative container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2 md:gap-3 group">
             <img 
               src="/images/glob2.png" 
-              alt="Global Ultra Tech - Eco Vehicle Recycling" 
-              className="h-10 md:h-12 w-auto"
+              alt="RVSF - Registered Vehicle Scrapping Facility" 
+              className="h-10 md:h-14 w-auto"
             />
-            <span className="text-base font-semibold text-[var(--color-text)] tracking-tight">
+            <img 
+              src="/images/glob4.png" 
+              alt="Global Ultra Tech Logo" 
+              className="h-10 md:h-14 w-auto"
+            />
+            <span className="text-sm md:text-base font-semibold text-[var(--color-text)] tracking-tight">
               Global Ultra Tech
             </span>
           </Link>
@@ -171,10 +176,15 @@ function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-2">
               <img 
                 src="/images/glob2.png" 
-                alt="Global Ultra Tech - Eco Vehicle Recycling" 
+                alt="RVSF - Registered Vehicle Scrapping Facility" 
+                className="h-10 w-auto"
+              />
+              <img 
+                src="/images/glob4.png" 
+                alt="Global Ultra Tech Logo" 
                 className="h-10 w-auto"
               />
               <span className="text-base font-semibold text-[var(--color-text)] tracking-tight">
@@ -257,7 +267,7 @@ export default function SiteLayout() {
         : 'bg-white text-slate-900'
     }`}>
       <Header />
-      <main className="pt-16 md:pt-20">
+      <main className="pt-16 md:pt-24">
         <Outlet />
       </main>
       <Footer />

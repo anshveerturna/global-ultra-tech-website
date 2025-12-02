@@ -171,12 +171,12 @@ export default function Home() {
                 </svg>
               </Link>
             </div>
-            {/* Eco car image */}
+            {/* RVSF Logo */}
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 to-transparent rounded-3xl blur-2xl opacity-50" />
               <img 
-                src="/images/glob2.png" 
-                alt="Eco-friendly vehicle recycling" 
+                src="/images/glob3.png" 
+                alt="RVSF - Registered Vehicle Scrapping Facility" 
                 className="relative w-full max-w-lg mx-auto drop-shadow-2xl"
               />
             </div>
