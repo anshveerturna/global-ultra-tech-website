@@ -56,8 +56,8 @@ function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img 
-              src="/images/glob3.png" 
-              alt="RVSF - Registered Vehicle Scrapping Facility" 
+              src="/images/glob2.png" 
+              alt="Global Ultra Tech - Eco Vehicle Recycling" 
               className="h-10 md:h-12 w-auto"
             />
             <span className="text-base font-semibold text-[var(--color-text)] tracking-tight">
@@ -173,8 +173,8 @@ function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3">
               <img 
-                src="/images/glob3.png" 
-                alt="RVSF - Registered Vehicle Scrapping Facility" 
+                src="/images/glob2.png" 
+                alt="Global Ultra Tech - Eco Vehicle Recycling" 
                 className="h-10 w-auto"
               />
               <span className="text-base font-semibold text-[var(--color-text)] tracking-tight">
