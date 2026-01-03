@@ -58,9 +58,9 @@ export default function Home() {
               <span className="badge">Vahan Linked</span>
             </div>
 
-            {/* Headline */}
+            {/* Headline - H1 includes brand name for SEO */}
             <h1 className="text-display gradient-text">
-              India's Premier Vehicle Scrapping Facility
+              Global Ultra Tech - India's Premier Vehicle Scrapping Facility
             </h1>
 
             {/* Subheadline */}

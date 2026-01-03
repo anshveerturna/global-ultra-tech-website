@@ -13,8 +13,8 @@ interface SEOProps {
 }
 
 const SITE_NAME = 'Global Ultra Tech'
-const BASE_URL = 'https://global-ultra-tech-website.vercel.app'
-const DEFAULT_IMAGE = `${BASE_URL}/images/glob1.jpg`
+const BASE_URL = 'https://globalultratech.com'
+const DEFAULT_IMAGE = `${BASE_URL}/images/logo.png`
 const DEFAULT_DESCRIPTION = 'Global Ultra Tech is a MoRTH-registered Vehicle Scrapping Facility (RVSF) in Rampur, UP. Get Certificate of Deposit (CoD), Certificate of Vehicle Scrappage (CoVS), fair scrap value & pickup service.'
 
 export default function SEO({
@@ -28,7 +28,10 @@ export default function SEO({
   noIndex = false,
   structuredData,
 }: SEOProps) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | RVSF - Registered Vehicle Scrapping Facility Rampur`
+  // For homepage (when title starts with brand name), use title as-is; otherwise append brand
+  const fullTitle = title 
+    ? (title.startsWith('Global Ultra Tech') ? title : `${title} | ${SITE_NAME}`)
+    : `Global Ultra Tech - Vehicle Scrapping Facility (RVSF) & Agricultural Implements`
   const fullCanonical = canonical ? `${BASE_URL}${canonical}` : BASE_URL
 
   return (
@@ -73,16 +76,17 @@ export default function SEO({
 // Pre-configured SEO data for each page
 export const seoConfig = {
   home: {
-    title: 'Vehicle Scrapping Facility Rampur',
+    // Title format: Brand name first, then keywords (for brand ranking)
+    title: 'Global Ultra Tech - Vehicle Scrapping Facility (RVSF) & Agricultural Implements',
     description: 'Global Ultra Tech is a MoRTH-registered RVSF in Rampur, UP. Get Certificate of Deposit (CoD), Certificate of Vehicle Scrappage (CoVS), fair scrap value, and vehicle pickup service.',
-    keywords: 'RVSF, vehicle scrapping, Rampur, Uttar Pradesh, CoD, CoVS, MoRTH, scrappage policy, car scrapping, vehicle recycling',
+    keywords: 'Global Ultra Tech, RVSF, vehicle scrapping, Rampur, Uttar Pradesh, CoD, CoVS, MoRTH, scrappage policy, car scrapping, vehicle recycling, agricultural implements',
     canonical: '/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Global Ultra Tech - Vehicle Scrapping Facility",
-      "description": "MoRTH-registered Vehicle Scrapping Facility in Rampur, Uttar Pradesh",
-      "url": "https://global-ultra-tech-website.vercel.app/",
+      "name": "Global Ultra Tech - Vehicle Scrapping Facility (RVSF) & Agricultural Implements",
+      "description": "Global Ultra Tech - MoRTH-registered Vehicle Scrapping Facility in Rampur, Uttar Pradesh",
+      "url": "https://globalultratech.com/",
       "mainEntity": {
         "@type": "LocalBusiness",
         "name": "Global Ultra Tech",
