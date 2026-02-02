@@ -67,7 +67,7 @@ export default function Contact() {
               </div>
               <h3 className="text-lg font-semibold text-[var(--color-text)]">Call Us</h3>
               <p className="mt-3 text-body">
-                <a href="tel:+919876543210" className="hover:text-emerald-400 transition-colors">+91 98765 43210</a><br />
+                <a href="tel:+919756900011" className="hover:text-emerald-400 transition-colors">+91 97569 00011</a><br />
                 <span className="text-[var(--color-text-muted)]">Mon–Sat, 9AM–6PM</span>
               </p>
             </div>
@@ -79,13 +79,14 @@ export default function Contact() {
               </div>
               <h3 className="text-lg font-semibold text-[var(--color-text)]">Email Us</h3>
               <p className="mt-3 text-body">
-                <a href="mailto:info@globalultratech.in" className="hover:text-emerald-400 transition-colors">info@globalultratech.in</a><br />
+                <a href="mailto:globalultratech@gmail.com" className="hover:text-emerald-400 transition-colors">globalultratech@gmail.com</a><br />
                 <span className="text-[var(--color-text-muted)]">Response within 24 hours</span>
               </p>
             </div>
           </div>
         </div>
       </section>
+      
 
       {/* Forms */}
       <section className={`section-lg ${theme === 'dark' ? 'bg-neutral-950' : 'bg-slate-50'}`}>
